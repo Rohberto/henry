@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #0972a2;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    width: 320px;
+    text-align: center;
+    font-family: "Montserrat",sans-serif;
+  }
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+  .logo img {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .login-form {
+    background-color: transparent;
+    border-radius: 8px;
+    color: #333;
+  }
+  
+  .input-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #FFFFFF; /* White background for inputs */
+    color: #333;
+    text-align: center;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 600;
+  }
+  
+  .show-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 700;
+  }
+  
+  .sign-in-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #FFA726;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+  }
+  
+  .sign-in-button:hover {
+    background-color: #F57C00;
+  }
+  
+  .remember-section {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #fff;
+    margin: 15px 0;
+  }
+  
+  .remember-section input {
+    margin-right: 8px;
+  }
+  hr{
+    border: 1px solid #fff;
+  }
+  .links {
+    font-size: 10px;
+   margin: 20px 0;
+  }
+  
+  .links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer {
+width: 100%;
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+  }
+  .footer img{
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #356A8C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon.info { background-image: url('path/to/info-icon.png'); }
+  .icon.location { background-image: url('path/to/location-icon.png'); }
+  .icon.chat { background-image: url('path/to/chat-icon.png'); }
+  
+  .footer-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-text a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .footer-text span {
+    margin-top: 5px;
+    text-align: center;
+  }
+  /* otp styling */
+
+
+.otp-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    text-align: center;
+    overflow-y: scroll;
+    height: 90vh;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.header i {
+    margin-right: 8px;
+    color: #555;
+}
+
+.h2Header{
+    background-color: #0082c8;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.h2Header a{
+  color: #fff;
+  text-decoration: none;
+}
+h2{
+  width: 90%;
+  font-size: 18px;
+}
+
+.auth-box {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.security-text {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.auth-box i {
+    margin-bottom: 20px;
+    color: #32cd32;
+    font-size: 24px;
+}
+
+label {
+    font-size: 12px;
+    color: #666;
+    margin-top: 15px;
+    display: block;
+    text-align: left;
+    text-transform: uppercase;
+}
+hr{
+  border: 1px solid #ddd;
+  margin: 10px 0;
+}
+select, input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    margin-bottom: 20px;
+}
+
+.remember label {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+h3 {
+  font-size: 12px;
+  color: #666;
+  margin-top: 15px;
+  display: block;
+  text-align: left;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.confirm-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.buttons i{
+  color: #666;
+}
+.button-text, .button-call {
+    width: 100px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid #666;
+    padding: 20px;
+}
+
+/* Green background for the active button */
+.buttons .active {
+  background-color: #32cd32; /* Green */
+  color: #fff;
+}
+.buttons .active i{
+  color: #fff;
+}
+
+.button-text i, .button-call i {
+    margin-right: 8px;
+}
+
+.sentpasscode{
+  font-size: 12px;
+  color: #666;
+  margin: 40px 0;
+  display: block;
+  text-align: center;
+  font-weight: 500;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #ccc; /* Gray when disabled */
+  color: #666;
+  border: none;
+  border-radius: 5px;
+  cursor: not-allowed;
+  transition: background-color 0.3s;
+}
+
+/* Active state for the submit button */
+.submit-button.active {
+  background-color: #0082c8; /* Blue when active */
+  cursor: pointer;
+  color: #fff;
+}
